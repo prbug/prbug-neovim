@@ -8,6 +8,9 @@ function M.config()
 
   null_ls.setup({
     sources = {
+      -- javascript
+      require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
+
       -- lua
       formatting.stylua.with({
         extra_args = {
@@ -20,11 +23,11 @@ function M.config()
         },
       }),
 
-      -- javascript
-      require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
+      -- python
+      diagnostics.pylint,
 
       -- spell completion
-      null_ls.builtins.completion.spell,
+      completion.spell,
     },
   })
 end

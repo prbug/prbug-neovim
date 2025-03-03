@@ -11,6 +11,7 @@ local M = {
 function M.config()
   local lspconfig = require("lspconfig")
 
+  -- ########## lua ##########
   -- lua language server
   lspconfig.lua_ls.setup({
     on_init = function(client)
@@ -58,6 +59,12 @@ function M.config()
     },
     require("neodev").setup({}),
   })
+
+  -- ########## python ##########
+  -- pyright
+  lspconfig.pyright.setup({})
+
+
 end
 
 return M
