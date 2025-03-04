@@ -140,12 +140,14 @@ function M.config()
   }
 
   local space = { provider = "   " }
+  local padding = { provider = " " }
 
   -- Setup
   heirline_components.init.subscribe_to_events()
   heirline.load_colors(heirline_components.hl.get_colors())
   heirline.setup({
     statusline = {
+      padding,
       ViMode,
       space,
       lib.git_branch(),
@@ -159,6 +161,7 @@ function M.config()
       space,
       lib.file_info({ hl = { fg = "#a0d0c0" } }),
       lib.nav({ scrollbar = false, hl = { fg = "teal" } }),
+      padding,
     },
   })
 end
