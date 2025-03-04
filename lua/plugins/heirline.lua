@@ -69,7 +69,7 @@ function M.config()
   heirline.load_colors(heirline_components.hl.get_colors())
   heirline.setup({
     statusline = {
-      lib.mode({ mode_text = {} }),
+      lib.mode({ mode_text = {}, hl = { fg = "#151515" } }),
       lib.git_branch(),
       lib.git_diff(),
       lib.virtual_env(),
@@ -77,9 +77,9 @@ function M.config()
       lib.cmd_info(),
       lib.fill(),
       lib.diagnostics(),
-      lib.lsp({ hl = { fg = "#ffffff" } }),
-      lib.file_info(),
-      lib.nav({ scrollbar = false }),
+      lib.lsp({ hl = { fg = "#ffbe69" } }),
+      lib.file_info({ hl = { fg = "#a0d0c0" } }),
+      lib.nav({ scrollbar = false, hl = { fg = "teal" } }),
     },
   })
 end
