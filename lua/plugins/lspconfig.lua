@@ -64,7 +64,14 @@ function M.config()
   -- pyright
   lspconfig.pyright.setup({})
 
-
+  -- ########## javascript ##########
+  -- typescript server
+  lspconfig.ts_ls.setup({
+    on_attach = function(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+    end,
+  })
 end
 
 return M

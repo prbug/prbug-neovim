@@ -1,0 +1,10 @@
+{
+  "language": "bigquery",
+  "tabWidth": 2,
+  "keywordCase": "upper",
+  "functionCase": "upper",
+  "identifierCase": "preserve",
+  "logicalOperatorNewline": "before",
+  "newlineBeforeSemicolon": true,
+  "expressionWidth": 100
+}

@@ -5,11 +5,17 @@ function M.config()
   local formatting = null_ls.builtins.formatting
   local diagnostics = null_ls.builtins.diagnostics
   local completion = null_ls.builtins.completion
+  local sql_formatter_config_file = os.getenv("HOME") .. "/.config/nvim/lua/user/sql-formatter-config.json"
 
   null_ls.setup({
     sources = {
       -- javascript
       require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
+      -- diagnostics.eslint_d,
+      formatting.prettierd,
+
+      -- css
+      diagnostics.stylelint,
 
       -- lua
       formatting.stylua.with({
@@ -28,6 +34,12 @@ function M.config()
 
       -- spell completion
       completion.spell,
+
+      -- sql
+      formatting.sql_formatter.with({
+        args = vim.fn.empty(vim.fn.glob(sql_formatter_config_file)) == 0 and { "--config", sql_formatter_config_file }
+          or nil,
+      }),
     },
   })
 end
