@@ -18,7 +18,9 @@ function M.config()
     { "<leader>/", function() vim.cmd("normal gcc") end, desc = "Comment", mode = { "n" }, },
     { "<leader>/", function() vim.cmd("normal gc") end, desc = "Comment", mode = { "v" }, },
     { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History", },
-    { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer", },
+    -- { "<leader>e", function() vim.cmd("Neotree toggle left reveal_force_cwd") end, desc = "File Explorer", },
+    { "<leader>e", function() Snacks.explorer.open() end, desc = "File Explorer", },
+    -- { "<leader>e", function() Snacks.explorer.reveal() end, desc = "File Explorer", },
     -- find
     { "<leader>f", group = "find" },
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers", },
