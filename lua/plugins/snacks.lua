@@ -25,6 +25,18 @@ return {
     },
     words = { enabled = true },
     -- ui = { wrap = false },
+    zen = {
+      toggles = {
+        dim = false,
+        git_signs = true,
+        mini_diff_signs = true,
+        diagnistics = true,
+        inlay_hints = true,
+      },
+      show = {
+        statusline = true,
+      }
+    }
   },
   -- UI keymaps live here, but all others will live in whichkey
   init = function()

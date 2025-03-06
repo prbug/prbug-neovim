@@ -48,6 +48,10 @@ vim.opt.fillchars:append({
 
 vim.opt.shortmess:append("c")
 
+-- Enable Undercurl
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
+
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 
