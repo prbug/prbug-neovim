@@ -1,6 +1,6 @@
 vim.opt.backup = false -- creates a backup file
--- vim.cmd "set clipboard=unnamed,unnamedplus"
-vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+vim.cmd "set clipboard=unnamed,unnamedplus"
+-- vim.cmd("set clipboard+='unnamedplus'") -- allows neovim to access the system clipboard
 -- vim.opt.clipboard = ""
 vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp

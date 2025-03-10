@@ -31,6 +31,9 @@ function M.config()
 
       -- python
       diagnostics.pylint,
+      formatting.black.with({
+        extra_args = { "--line-length=120" },
+      }),
 
       -- spell completion
       completion.spell,
