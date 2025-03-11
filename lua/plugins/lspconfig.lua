@@ -72,6 +72,15 @@ function M.config()
       client.server_capabilities.documentRangeFormattingProvider = false
     end,
   })
+
+  -- ########## golang ##########
+  -- gopls
+  lspconfig.gopls.setup({
+    cmd = { "gopls", "serve" },
+    on_attach = function(client, bufnr)
+      client.resolved_capabilities.document_formatting = false
+    end,
+  })
 end
 
 return M

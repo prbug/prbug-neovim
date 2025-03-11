@@ -43,6 +43,9 @@ function M.config()
         args = vim.fn.empty(vim.fn.glob(sql_formatter_config_file)) == 0 and { "--config", sql_formatter_config_file }
           or nil,
       }),
+
+      -- go
+      formatting.goimports,
     },
   })
 end
