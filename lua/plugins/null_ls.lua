@@ -31,6 +31,7 @@ function M.config()
 
       -- python
       diagnostics.pylint,
+      formatting.isort,
       formatting.black.with({
         extra_args = { "--line-length=120" },
       }),

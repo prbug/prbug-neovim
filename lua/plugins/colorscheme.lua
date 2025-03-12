@@ -1,4 +1,8 @@
-local M = { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+local M = {
+   "catppuccin/nvim", name = "catppuccin", priority = 1000
+  -- "folke/tokyonight.nvim", name = "tokyonight", priority = 1000
+  -- "rebelot/kanagawa.nvim", name = "kanagawa", priority = 1000
+}
 
 function M.config()
   require("catppuccin").setup({
@@ -37,6 +41,32 @@ function M.config()
     term_colors = true,
   })
   vim.cmd.colorscheme("catppuccin")
+
+  -- require("tokyonight").setup({
+  --   style = "storm",
+  --   transparent = true,
+  --   -- italic_comments = true,
+  --   -- italic_keywords = true,
+  --   -- italic_functions = true,
+  --   -- italic_variables = true,
+  --   dark_sidebar = false,
+  --   dark_float = false,
+  --   -- sidebars = { "qf", "vista_kind", "terminal", "packer" },
+  -- })
+  -- vim.cmd.colorscheme("tokyonight")
+
+  -- require("kanagawa").setup({
+  --   transparent = true,
+  --   colors = { theme = { all = { ui = { bg_gutter = "none", bg_m3 = "none" } } } },
+  --   overrides = function()
+  --     return {
+  --       NormalFloat = { bg = "none" },
+  --       FloatBorder = { bg = "none" },
+  --       FloatTitle = { bg = "none" },
+  --     }
+  --   end,
+  -- })
+  -- vim.cmd.colorscheme("kanagawa")
 
   vim.o.cursorline = false
   vim.opt.titlestring = "neovim"
