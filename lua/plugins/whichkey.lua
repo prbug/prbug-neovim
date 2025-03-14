@@ -22,6 +22,7 @@ function M.config()
     { "<leader>e", function() Snacks.explorer.open() end, desc = "File Explorer", },
     -- { "<leader>e", function() Snacks.explorer.reveal() end, desc = "File Explorer", },
     { "<leader>r", function() vim.lsp.buf.rename() end, desc = "Rename Variable" },
+    { "<leader>t", function() vim.cmd("Themery") end, desc = "Themes" },
     -- find
     { "<leader>f", group = "find" },
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers", },
