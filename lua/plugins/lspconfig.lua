@@ -81,6 +81,10 @@ function M.config()
       client.resolved_capabilities.document_formatting = false
     end,
   })
+
+  -- ########## rust ##########
+  -- rust-analyzer
+  lspconfig.rust_analyzer.setup({})
 end
 
 return M
