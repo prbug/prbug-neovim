@@ -10,6 +10,7 @@ function M.config()
   require("mason-lspconfig").setup({
     ensure_installed = {
       "pyright",
+      "rust_analyzer",
     },
     ui = {
       border = "rounded",

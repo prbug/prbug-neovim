@@ -232,7 +232,7 @@ function M.config()
     -- UI group definition
     { "<leader>u", group = "UI" },
     { "<leader>i", group = "info" },
-    { "<leader>in", function() Snacks.picker.notifications() end, desc = "Notification History", },
+    { "<leader>in", function() require("fidget").notification.show_history() end, desc = "Notification History", },
     -- { "<leader>in", function() Snacks.notifier.show_history() end, desc = "Notification History", },
   })
 end
