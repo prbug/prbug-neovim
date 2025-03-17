@@ -2,69 +2,41 @@ local M = {
   "zaldih/themery.nvim",
   name = "themery",
   lazy = false,
+  priority = 1000,
 }
 
 function M.config()
+  -- autocmd to force transparent status line
+  vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+      -- Basic statusline highlights
+      vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
+
+      -- Heirline component highlights - override ALL of them
+      for _, group in ipairs(vim.fn.getcompletion("Heirline", "highlight")) do
+        local current = vim.api.nvim_get_hl(0, { name = group })
+        current.bg = "NONE" -- Force transparent background
+        vim.api.nvim_set_hl(0, group, current)
+      end
+    end,
+    pattern = "*",
+  })
+
   -- default theme
   vim.g.colorscheme = "catppuccin"
 
   -- theme switcher
-  local themery = require("themery")
-  themery.setup({
+  require("themery").setup({
     themes = {
       "catppuccin",
+      -- "tokyonight-night",
+      -- "tokyonight-storm",
+      "tokyonight-moon",
       { name = "rose-pine", colorscheme = "rose-pine-moon" },
-      {
-        name = "starry (moonlight)",
-        colorscheme = "starry",
-        before = [[
-          require("starry").setup({ style = { name = "moonlight" } })
-          vim.g.starry_italic_comments = true
-        ]],
-      },
-      {
-        name = "starry (dracula)",
-        colorscheme = "starry",
-        before = [[
-          require("starry").setup({ style = { name = "dracula" } })
-          vim.g.starry_italic_comments = true
-        ]],
-      },
-      {
-        name = "starry (dracula blood)",
-        colorscheme = "starry",
-        before = [[
-          require("starry").setup({ style = { name = "dracula_blood" } })
-          vim.g.starry_italic_comments = true
-        ]],
-      },
-      {
-        name = "starry (middlenight)",
-        colorscheme = "starry",
-        before = [[
-          require("starry").setup({ style = { name = "middlenight_blue" } })
-          vim.g.starry_italic_comments = true
-        ]],
-      },
-      {
-        name = "starry (early summer)",
-        colorscheme = "starry",
-        before = [[
-          require("starry").setup({ style = { name = "earlysummer" } })
-          vim.g.starry_italic_comments = true
-        ]],
-      },
-      {
-        name = "starry (dark solar)",
-        colorscheme = "starry",
-        before = [[
-          require("starry").setup({ style = { name = "dark_solar" } })
-          vim.g.starry_italic_comments = true
-        ]],
-      },
     },
-    globalAfter = [[ require("sttusline").setup({ statusline_color = "none" }) ]],
     livePreview = true,
+    globalAfter = [[ vim.cmd("doautocmd ColorScheme") ]],
   })
 
   -- vim.o.cursorline = false
