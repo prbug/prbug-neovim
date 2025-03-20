@@ -84,7 +84,7 @@ function M.config()
 
   -- ########## rust ##########
   -- rust-analyzer
-  -- lspconfig.rust_analyzer.setup({})
+  -- lspconfig.rust_analyzer.setup({}) -- handled by rustaceanvim
 end
 
 return M

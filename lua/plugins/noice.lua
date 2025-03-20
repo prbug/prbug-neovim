@@ -6,7 +6,7 @@ local M = {
 
 function M.config()
   vim.diagnostic.config({
-    float = { header = false, border = "rounded" },
+    float = { source = "always", header = false, border = "rounded" },
     virtual_text = false,
   })
   require("noice").setup({

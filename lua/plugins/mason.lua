@@ -6,14 +6,13 @@ local M = {
 }
 
 function M.config()
-  require("mason").setup()
+  require("mason").setup({
+    ui = { border = "rounded" },
+  })
   require("mason-lspconfig").setup({
     ensure_installed = {
       "pyright",
       "rust_analyzer",
-    },
-    ui = {
-      border = "rounded",
     },
   })
 end
