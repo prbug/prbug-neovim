@@ -32,7 +32,11 @@ function M.config()
       "catppuccin",
       -- "tokyonight-night",
       -- "tokyonight-storm",
-      "tokyonight-moon",
+      {
+        name = "tokyonight",
+        colorscheme = "tokyonight-moon",
+        after = [[ require("tokyonight.colors").setup() ]],
+      },
       { name = "rose-pine", colorscheme = "rose-pine-moon" },
     },
     livePreview = true,
