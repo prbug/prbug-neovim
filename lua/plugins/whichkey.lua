@@ -41,6 +41,8 @@ function M.config()
     { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash", },
     { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)", },
     { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File", },
+    { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" }, },
+    { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit", },
     -- search
     { "<leader>s", group = "search" },
     { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines", },
@@ -203,8 +205,6 @@ function M.config()
     { "<leader>n",  function() vim.cmd.nohlsearch() end, desc = "No Highlight" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer", },
     { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File", },
-    { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" }, },
-    { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit", },
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications", },
     { "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal", },
     { "<c-_>", function() Snacks.terminal() end, desc = "which_key_ignore", },
