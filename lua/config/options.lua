@@ -58,3 +58,13 @@ vim.cmd([[set iskeyword+=-]])
 
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2
+
+-- add border to floating terminal used by rustaceanvim for renderDiagnostic
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    local win = vim.api.nvim_get_current_win()
+    vim.api.nvim_win_set_config(win, {
+      border = "rounded",
+    })
+  end,
+})
