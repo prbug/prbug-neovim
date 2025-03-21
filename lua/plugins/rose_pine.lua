@@ -3,6 +3,10 @@ local M = {
   name = "rose-pine",
 }
 
+local function set_color(identifier, color)
+  vim.api.nvim_set_hl(0, identifier, { fg = color })
+end
+
 function M.config()
   require("rose-pine").setup({
     variant = "auto", -- auto, main, moon, or dawn
@@ -64,6 +68,8 @@ function M.config()
     -- NOTE: Highlight groups are extended (merged) by default. Disable this
     -- per group via `inherit = false`
     highlight_groups = {
+      -- ["@string.documentation"] = { fg = "#636da6", style = { "italic" } },
+      -- Comment = { fg = "#394b70", style = { "italic" } },
       -- Comment = { fg = "foam" },
       -- StatusLine = { fg = "love", bg = "love", blend = 15 },
       -- VertSplit = { fg = "muted", bg = "muted" },
@@ -71,6 +77,10 @@ function M.config()
     },
 
     before_highlight = function(group, highlight, palette)
+      set_color("@comment", "#6e6a86")
+      set_color("@string.documentation",  "#908caa")
+      -- set_color("@module", "#c4a7e7")
+      -- set_color("@variable.parameter", "#db849c")
       -- Disable all undercurls
       -- if highlight.undercurl then
       --     highlight.undercurl = false
