@@ -1,3 +1,4 @@
+vim.opt.autochdir = true
 vim.opt.backup = false -- creates a backup file
 vim.cmd("set clipboard=unnamed,unnamedplus")
 -- vim.cmd("set clipboard+='unnamedplus'") -- allows neovim to access the system clipboard
@@ -68,3 +69,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
     })
   end,
 })
+
+-- augment settings
+vim.g.augment_workspace_folders = "/Users/chandler"

@@ -5,7 +5,8 @@ local M = {
 }
 
 function M.config()
-  require("snacks").setup({
+  Snacks = require("snacks")
+  Snacks.setup({
     dashboard = { enabled = true },
     explorer = { enabled = true },
     git = { enabled = true },
@@ -39,11 +40,12 @@ function M.config()
         git_signs = true,
         mini_diff_signs = true,
         diagnistics = true,
-        inlay_hints = true,
+        -- inlay_hints = true,
       },
       show = {
         statusline = true,
       },
+      win = { backdrop = { transparent = false, blend = 99 } },
     },
   })
   -- UI keymaps live here, but all others will live in whichkey
@@ -75,30 +77,6 @@ function M.config()
       Snacks.toggle.dim():map("<leader>uD")
     end,
   })
-
-  -- local function get_project_root()
-  --   local current_file = vim.api.nvim_buf_get_name(0)
-  --   if current_file == "" then
-  --     return vim.fn.getcwd()
-  --   end
-  --   local project_root = vim.fn.getcwd()
-  --   local root_markers = { ".git", ".svn", "package.json", "Cargo.toml", "go.mod" }
-  --   for _, marker in ipairs(root_markers) do
-  --     local found_root = vim.fn.findfile(marker, current_file .. ";")
-  --     if found_root ~= "" then
-  --       project_root = vim.fn.fnamemodify(found_root, ":h")
-  --       break
-  --     end
-  --   end
-  --   return project_root
-  -- end
-  --
-  -- vim.api.nvim_create_autocmd("BufEnter", {
-  --   callback = function()
-  --     local project_root = get_project_root()
-  --     picker.set_cwd(project_root)
-  --   end,
-  -- })
 end
 
 return M
