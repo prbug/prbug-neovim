@@ -66,8 +66,8 @@ function M.config()
         WinSeparator = { fg = colors.surface1 },
         ["@constant.builtin"] = { style = { "italic", "bold" } },
         ["@keyword.return"] = { style = { "italic" } },
-        ["@punctuation.bracket"] = { fg = colors.overlay1 },
-        ["@punctuation.delimiter"] = { fg = colors.overlay1 },
+        ["@punctuation.bracket"] = { fg = colors.overlay2 },
+        ["@punctuation.delimiter"] = { fg = colors.overlay2 },
         ["@string.documentation"] = { fg = colors.overlay1, style = { "italic" } },
         ["@type.builtin"] = { style = { "bold" } },
         ["@variable.builtin"] = { fg = colors.maroon, style = { "italic", "bold" } },
@@ -75,6 +75,7 @@ function M.config()
       }
     end,
     integrations = {
+      blink_cmp = true,
       snacks = { enabled = true },
       noice = true,
       native_lsp = {

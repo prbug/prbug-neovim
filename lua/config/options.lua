@@ -70,5 +70,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
--- augment settings
-vim.g.augment_workspace_folders = "/Users/chandler"
+-- window resizing
+vim.cmd("autocmd VimResized * wincmd =") -- automatically resize splits when window is resized
+vim.opt.equalalways = true -- resize to equal
+
