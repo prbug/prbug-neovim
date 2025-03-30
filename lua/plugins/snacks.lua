@@ -8,7 +8,9 @@ function M.config()
   Snacks = require("snacks")
   Snacks.setup({
     dashboard = { enabled = true },
-    explorer = { enabled = true },
+    explorer = {
+      enabled = true,
+    },
     git = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
@@ -21,6 +23,21 @@ function M.config()
       matcher = { cwd_bonus = true },
       projects = {
         matcher = { cwd_bonus = true },
+      },
+      sources = {
+        explorer = {
+          enabled = true,
+          hidden = true,
+          auto_close = false,
+          win = {
+            list = {
+              keys = {
+                ["o"] = { "o", { "pick_win", "jump" }, mode = { "n", "i" } },
+                ["<enter>"] = { "<enter>", { "pick_win", "jump" }, mode = { "n", "i" } },
+              },
+            },
+          },
+        },
       },
     },
     quickfile = { enabled = true },
