@@ -61,8 +61,26 @@ function M.config()
   })
 
   -- ########## python ##########
-  -- pyright
-  lspconfig.pyright.setup({})
+  lspconfig.pyright.setup({
+    root_dir = function(fname)
+      -- Look for pyproject.toml first as the root directory marker
+      return lspconfig.util.root_pattern("pyproject.toml")(fname)
+        or lspconfig.util.root_pattern("setup.py", "setup.cfg", "requirements.txt")(fname)
+        or lspconfig.util.find_git_ancestor(fname)
+    end,
+    settings = {
+      python = {
+        analysis = {
+          -- Enable type checking
+          typeCheckingMode = "basic",
+          -- Use pyproject.toml for configuration
+          extraPaths = { "." },
+        },
+      },
+    },
+  })
+  -- ruff
+  lspconfig.ruff.setup({})
 
   -- ########## javascript ##########
   -- typescript server

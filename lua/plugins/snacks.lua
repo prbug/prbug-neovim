@@ -14,6 +14,7 @@ function M.config()
     git = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
+    lazygit = { enabled = true, config = true },
     notifier = {
       enabled = false,
       timeout = 3000,
