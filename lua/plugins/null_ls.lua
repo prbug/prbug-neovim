@@ -29,12 +29,12 @@ function M.config()
         },
       }),
 
-      -- python
-      diagnostics.pylint,
+      -- python (now all managed by ruff in lspconfig.lua)
+      -- diagnostics.pylint,
       formatting.isort,
-      formatting.black.with({
-        extra_args = { "--line-length=120" },
-      }),
+      -- formatting.black.with({
+      --   extra_args = { "--line-length=80" },
+      -- }),
 
       -- spell completion
       completion.spell,

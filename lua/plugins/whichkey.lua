@@ -42,7 +42,7 @@ function M.config()
     { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line", },
     { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status", },
     { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash", },
-    { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)", },
+    { "<leader>gd", function() vim.cmd("DiffviewOpen") end, desc = "Git Diff", },
     { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File", },
     { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" }, },
     { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit", },
