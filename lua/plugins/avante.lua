@@ -5,7 +5,8 @@ local M = {
   opts = {
     -- add any opts here
     -- for example
-    provider = "claude",
+    -- provider = "claude",
+    provider = "gemini",
     claude = {
       endpoint = "https://api.anthropic.com",
       model = "claude-3-5-haiku-20241022",
