@@ -9,7 +9,7 @@ function M.config()
     tools = {
       float_window_config = { border = "rounded" },
       executor = {
-        opts = {}
+        opts = {},
       },
       rustc = {},
     },
