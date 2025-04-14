@@ -4,7 +4,7 @@ local M = {
   lazy = false,
   dependencies = {
     "kdheepak/lazygit.nvim",
-  }
+  },
 }
 
 function M.config()
@@ -32,6 +32,7 @@ function M.config()
         explorer = {
           enabled = true,
           hidden = true,
+          ignored = true, -- unhide gitignored files
           auto_close = false,
           win = {
             list = {
