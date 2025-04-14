@@ -21,7 +21,10 @@ return {
     signature = { window = { border = "rounded" } },
     keymap = { preset = "enter" },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "codeium" },
+      default = { "lsp", "path", "snippets", "buffer", "codeium", "codecompanion" },
+      -- per_filetype = {
+      --   codecompanion = "codecompanion",
+      -- },
       providers = {
         codeium = {
           name = "codeium",

@@ -2,6 +2,9 @@ local M = {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  dependencies = {
+    "kdheepak/lazygit.nvim",
+  }
 }
 
 function M.config()
@@ -14,7 +17,7 @@ function M.config()
     git = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
-    lazygit = { enabled = true, config = true },
+    -- lazygit = { enabled = true, config = true },
     notifier = {
       enabled = false,
       timeout = 3000,
@@ -39,6 +42,9 @@ function M.config()
             },
           },
         },
+      },
+      explorer = {
+        finder = "explorer",
       },
     },
     quickfile = { enabled = true },

@@ -24,6 +24,7 @@ function M.config()
     { "<leader>r", function() vim.lsp.buf.rename() end, desc = "Rename Variable" },
     { "<leader>R", function() Snacks.rename.rename_file() end, desc = "Rename File", },
     { "<leader>t", function() vim.cmd("Themery") end, desc = "Themes" },
+    { "<leader>L", function() vim.cmd("Lazy") end, desc = "Lazy" },
     -- avante
     { "<leader>a", group = "Avante", },
     -- find
