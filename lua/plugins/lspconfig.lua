@@ -10,6 +10,8 @@ local M = {
 
 function M.config()
   local lspconfig = require("lspconfig")
+  -- ########## harper ##########
+  -- lspconfig.harper_ls.setup({})
 
   -- ########## lua ##########
   -- lua language server
@@ -61,6 +63,11 @@ function M.config()
   })
 
   -- ########## python ##########
+  -- vim.lsp.enable("ty")
+  -- vim.lsp.config("ty", {
+  --   cmd = { "uvx", "ty", "server" },
+  --   filetypes = { "python" },
+  -- })
   lspconfig.pyright.setup({
     root_dir = function(fname)
       -- Look for pyproject.toml first as the root directory marker
@@ -72,7 +79,8 @@ function M.config()
       python = {
         analysis = {
           -- Enable type checking
-          typeCheckingMode = "basic",
+          typeCheckingMode = false,
+          -- typeCheckingMode = "basic",
           -- Use pyproject.toml for configuration
           extraPaths = { "." },
         },
@@ -81,6 +89,7 @@ function M.config()
   })
   -- ruff
   lspconfig.ruff.setup({})
+  lspconfig.taplo.setup({})
 
   -- ########## javascript ##########
   -- typescript server

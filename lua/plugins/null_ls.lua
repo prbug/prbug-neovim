@@ -31,7 +31,7 @@ function M.config()
 
       -- python (now all managed by ruff in lspconfig.lua)
       -- diagnostics.pylint,
-      formatting.isort,
+      -- formatting.isort,
       -- formatting.black.with({
       --   extra_args = { "--line-length=80" },
       -- }),

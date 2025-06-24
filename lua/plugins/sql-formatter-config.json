@@ -1,8 +1,8 @@
 {
-  "language": "bigquery",
+  "language": "postgresql",
   "tabWidth": 2,
-  "keywordCase": "upper",
-  "functionCase": "upper",
+  "keywordCase": "lower",
+  "functionCase": "lower",
   "identifierCase": "preserve",
   "logicalOperatorNewline": "before",
   "newlineBeforeSemicolon": true,

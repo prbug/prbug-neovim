@@ -11,9 +11,7 @@ function M.config()
   Snacks = require("snacks")
   Snacks.setup({
     dashboard = { enabled = true },
-    explorer = {
-      enabled = true,
-    },
+    explorer = { enabled = true },
     git = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
@@ -73,6 +71,7 @@ function M.config()
       win = { backdrop = { transparent = false, blend = 99 } },
     },
   })
+
   -- UI keymaps live here, but all others will live in whichkey
   vim.api.nvim_create_autocmd("User", {
     pattern = "VeryLazy",

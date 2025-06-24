@@ -11,7 +11,8 @@ function M.config()
   })
   require("mason-lspconfig").setup({
     ensure_installed = {
-      "pyright",
+      -- "pyright",
+      -- "ty",
       "ruff",
       "rust_analyzer",
       "lua_ls",
