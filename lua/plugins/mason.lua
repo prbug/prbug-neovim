@@ -14,7 +14,7 @@ function M.config()
       -- "pyright",
       -- "ty",
       "ruff",
-      "rust_analyzer",
+      -- "rust_analyzer",
       "lua_ls",
     },
   })

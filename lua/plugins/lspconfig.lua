@@ -16,36 +16,10 @@ function M.config()
   -- ########## lua ##########
   -- lua language server
   lspconfig.lua_ls.setup({
-    on_init = function(client)
-      if client.workspace_folders then
-        local path = client.workspace_folders[1].name
-        if
-          path ~= vim.fn.stdpath("config")
-          and (vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc"))
-        then
-          return
-        end
-      end
-      client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-        runtime = { version = "LuaJIT" },
-        -- Make the server aware of Neovim runtime files
-        workspace = { checkThirdParty = false, library = { vim.env.VIMRUNTIME } },
-        -- format = { enable = true, defaultConfig = { indent_style = "space", indent_size = "2" } },
-      })
-    end,
     settings = {
       Lua = {
-        format = {
-          enable = false,
-        },
-        diagnostics = {
-          globals = { "vim", "spec" },
-        },
         runtime = {
           version = "LuaJIT",
-          special = {
-            spec = "require",
-          },
         },
         workspace = {
           checkThirdParty = false,
@@ -54,60 +28,54 @@ function M.config()
             [vim.fn.stdpath("config") .. "/lua"] = true,
           },
         },
-        telemetry = {
-          enable = false,
-        },
       },
     },
-    require("neodev").setup({}),
   })
+  require("neodev").setup({})
 
   -- ########## python ##########
-  -- vim.lsp.enable("ty")
-  -- vim.lsp.config("ty", {
-  --   cmd = { "uvx", "ty", "server" },
-  --   filetypes = { "python" },
+  lspconfig.ty.setup({})
+  -- lspconfig.pyright.setup({
+  --   root_dir = function(fname)
+  --     -- Look for pyproject.toml first as the root directory marker
+  --     return lspconfig.util.root_pattern("pyproject.toml")(fname)
+  --       or lspconfig.util.root_pattern("setup.py", "setup.cfg", "requirements.txt")(fname)
+  --       or lspconfig.util.find_git_ancestor(fname)
+  --   end,
+  --   settings = {
+  --     python = {
+  --       analysis = {
+  --         -- Enable type checking
+  --         typeCheckingMode = "basic", -- Changed from false to "basic" for type checking
+  --         -- Use pyproject.toml for configuration
+  --         extraPaths = { "." },
+  --       },
+  --     },
+  --   },
   -- })
-  lspconfig.pyright.setup({
-    root_dir = function(fname)
-      -- Look for pyproject.toml first as the root directory marker
-      return lspconfig.util.root_pattern("pyproject.toml")(fname)
-        or lspconfig.util.root_pattern("setup.py", "setup.cfg", "requirements.txt")(fname)
-        or lspconfig.util.find_git_ancestor(fname)
-    end,
-    settings = {
-      python = {
-        analysis = {
-          -- Enable type checking
-          typeCheckingMode = false,
-          -- typeCheckingMode = "basic",
-          -- Use pyproject.toml for configuration
-          extraPaths = { "." },
-        },
-      },
-    },
-  })
-  -- ruff
+  -- Ruff
   lspconfig.ruff.setup({})
   lspconfig.taplo.setup({})
 
   -- ########## javascript ##########
-  -- typescript server
+  -- TypeScript Server
   lspconfig.ts_ls.setup({
     on_attach = function(client, bufnr)
+      -- Enable formatting if desired
       client.server_capabilities.documentFormattingProvider = false
       client.server_capabilities.documentRangeFormattingProvider = false
     end,
   })
 
   -- ########## golang ##########
-  -- gopls
-  lspconfig.gopls.setup({
-    cmd = { "gopls", "serve" },
-    on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-    end,
-  })
+  -- Golang
+  lspconfig.gopls.setup({})
+  -- lspconfig.gopls.setup({
+  --   cmd = { "gopls", "serve" },
+  --   on_attach = function(client, bufnr)
+  --     client.resolved_capabilities.document_formatting = false
+  --   end,
+  -- })
 
   -- ########## rust ##########
   -- rust-analyzer

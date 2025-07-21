@@ -5,7 +5,8 @@ function M.config()
   local formatting = null_ls.builtins.formatting
   local diagnostics = null_ls.builtins.diagnostics
   local completion = null_ls.builtins.completion
-  local sql_formatter_config_file = os.getenv("HOME") .. "/.config/nvim/lua/user/sql-formatter-config.json"
+  local sql_formatter_config_file = os.getenv("HOME") .. "/.config/nvim/lua/plugins/sql-formatter-config.json"
+  -- local sqruff_config_file = os.getenv("HOME") .. "/.config/nvim/lua/plugins/sqruff-config.toml"
 
   null_ls.setup({
     sources = {
@@ -40,9 +41,9 @@ function M.config()
       completion.spell,
 
       -- sql
+      -- formatting.sqlfmt,
       formatting.sql_formatter.with({
-        args = vim.fn.empty(vim.fn.glob(sql_formatter_config_file)) == 0 and { "--config", sql_formatter_config_file }
-          or nil,
+        args = { "--config", sql_formatter_config_file },
       }),
 
       -- go
